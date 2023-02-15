@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zszgroup.epidemicbigdata.mapper.AreaMapper">
+
+    <resultMap id="BaseResultMap" type="com.zszgroup.epidemicbigdata.pojo.Area">
+            <result property="pid" column="pid" jdbcType="INTEGER"/>
+            <result property="prov" column="prov" jdbcType="VARCHAR"/>
+            <result property="parea" column="parea" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        pid,prov,parea
+    </sql>
+</mapper>

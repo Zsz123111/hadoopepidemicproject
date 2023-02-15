@@ -1,0 +1,16 @@
+dt 时间
+prov 省份
+pid 省份id
+confall 累计确诊
+deadall 累计死亡
+healall 累计治愈
+nosymall 累计无症状
+confins 新增确诊
+healins 新增治愈
+deadins 新增死亡
+confinsbt 新增本土确诊
+nosymins 新增无症状
+
+数据日期范围2022/5/13--2022/12/13
+
+工程说明参见epidemicbigdata文件夹下README.md

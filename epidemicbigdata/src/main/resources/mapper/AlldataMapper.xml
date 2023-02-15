@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zszgroup.epidemicbigdata.mapper.AlldataMapper">
+
+    <resultMap id="BaseResultMap" type="com.zszgroup.epidemicbigdata.pojo.Alldata">
+            <result property="dt" column="dt" jdbcType="CHAR"/>
+            <result property="confall" column="confall" jdbcType="INTEGER"/>
+            <result property="deadall" column="deadall" jdbcType="INTEGER"/>
+            <result property="healall" column="healall" jdbcType="INTEGER"/>
+            <result property="nosymall" column="nosymall" jdbcType="INTEGER"/>
+            <result property="confins" column="confins" jdbcType="INTEGER"/>
+            <result property="healins" column="healins" jdbcType="INTEGER"/>
+            <result property="deadins" column="deadins" jdbcType="INTEGER"/>
+            <result property="confinsbt" column="confinsbt" jdbcType="INTEGER"/>
+            <result property="nosymins" column="nosymins" jdbcType="INTEGER"/>
+            <result property="year" column="year" jdbcType="INTEGER"/>
+            <result property="month" column="month" jdbcType="INTEGER"/>
+            <result property="day" column="day" jdbcType="INTEGER"/>
+            <association property="pid" column="pid" javaType="com.zszgroup.epidemicbigdata.pojo.Area">
+                <result property="pid" column="pid"></result>
+                <result property="prov" column="prov"></result>
+                <result property="parea" column="parea"></result>
+            </association>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        dt,pid,confall,
+        deadall,healall,nosymall,
+        confins,healins,deadins,
+        confinsbt,nosymins,year,
+        month,day
+    </sql>
+    <select id="selectSumAllDiagnosedByDate" resultType="java.lang.Integer">
+        select sum(confall) from alldata where (year &lt;= #{year});
+    </select>
+    <select id="selectSumAllSecureByDate" resultType="java.lang.Integer">
+        select sum(healall) from alldata where (year &lt;= #{year});
+    </select>
+    <select id="selectSumAllDeadByDate" resultType="java.lang.Integer">
+        select sum(deadall) from alldata where (year &lt;= #{year});
+    </select>
+    <select id="selectSumNewDiagnosedByDate" resultType="java.lang.Integer">
+        select sum(confins) from alldata where (year = #{year} and month = #{month} and day = #{day})
+    </select>
+    <select id="selectSumNewSecureByDate" resultType="java.lang.Integer">
+        select sum(healins) from alldata where (year = #{year} and month = #{month} and day = #{day})
+    </select>
+    <select id="selectSumNewDeadByDate" resultType="java.lang.Integer">
+        select sum(deadins) from alldata where (year = #{year} and month = #{month} and day = #{day})
+    </select>
+    <select id="selectSumNewAsymptomaticByDate" resultType="java.lang.Integer">
+        select sum(nosymins) from alldata where (year = #{year} and month = #{month} and day = #{day})
+    </select>
+    <select id="selectFiveDiagnosedByDate" resultType="com.zszgroup.epidemicbigdata.pojo.NewDiagnosed">
+        select alldata.pid,prov,confins from alldata,area
+        where (year=#{year} and month = #{month} and day = #{day} and alldata.pid = area.pid)
+        order by confins desc
+        limit 0,5
+    </select>
+    <select id="selectFiveSecureByDate" resultType="com.zszgroup.epidemicbigdata.pojo.NewSecure">
+        select alldata.pid,prov,healins from alldata,area
+        where (year=#{year} and month = #{month} and day = #{day} and alldata.pid = area.pid)
+        order by healins desc
+        limit 0,5
+    </select>
+    <select id="selectFiveDeadByDate" resultType="com.zszgroup.epidemicbigdata.pojo.NewDead">
+        select alldata.pid,prov,deadins from alldata,area
+        where (year=#{year} and month = #{month} and day = #{day} and alldata.pid = area.pid)
+        order by deadins desc
+        limit 0,5
+    </select>
+    <select id="selectFiveAsymptomaticByDate" resultType="com.zszgroup.epidemicbigdata.pojo.NewAsymptomatic">
+        select alldata.pid,prov,nosymins  from alldata,area
+        where (year=#{year} and month = #{month} and day = #{day} and alldata.pid = area.pid)
+        order by nosymins  desc
+        limit 0,5
+    </select>
+</mapper>
