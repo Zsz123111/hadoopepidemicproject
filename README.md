@@ -1,37 +1,9 @@
 # 基于Hadoop的疫情可视化分析平台
-
+ :joy:  **_如果想咨询hadoop技术相关。抱歉，我在本项目只负责后端。大数据处理部分建议参考黑马大数据课程。一天时间就可以弄懂。实在不好意思，再次表达歉意！！！_**  :broken_heart: 
 #### 介绍
-数据爬取分析利用hadoop全家桶。分析结果保存在mysql数据库中，后端springboot+mybatisplus+springMVC,前端html，css，js，jquery，ajax。用了echarts表格展现数据
+1. 数据爬取分析利用 **hadoop** 全家桶。分析结果保存在 **mysql5.7** 数据库中。仓库中 **数据库说明.txt** 对数据进行了说明解释。
+2. 后端 **SpringBoot2.4.2+Mybatis-Plus+Spring MVC** 
+3. 前端 **html，css，js，jquery，ajax。用了echarts表格展现数据** 。配合 **Thymeleaf** 模板引擎进行改造， **前后端不分离。前端文件位于resources下** 
 
 #### 软件架构
-项目效果在word实验报告中，项目可以随便改。但是请不要泄露实验报告的个人隐私信息谢谢
-
-
-#### 安装教程
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+项目效果在word **实验报告基于大数据的疫情可视化分析平台 副本.docx** 中，项目可以随便改。但是请不要泄露实验报告的个人隐私信息谢谢
